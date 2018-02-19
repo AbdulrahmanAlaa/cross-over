@@ -1,0 +1,24 @@
+<div [@detailsAnimations]="state" *ngIf="video" class="panel panel-default">
+  <div class="panel-header">
+    <h2 class="heading">
+      {{video.name}}
+      <span class="badge badge-success">
+        <span class="glyphicon glyphicon-star yellow" aria-hidden="true"></span>{{ video.rateCount | number:'1.1-1'}}
+      </span>
+    </h2>
+  </div>
+
+  <div class="panel-body">
+      <video   controls style="width:100%;">
+          <source [src]=" baseUrl + video.url" />
+          <p>Your browser does not support the video.</p>
+        </video>   
+  </div>
+
+  <div class="panel-footer">
+    <h3>
+      Rate <rating (click)="selected()" [(ngModel)]="rate" [max]="5" [readonly]="false"></rating>
+    </h3>
+    <h4>{{video.description}}</h4>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a [routerLink]="['details',video._id]">
+      <h3 class="panel-title" [title]="video.name">
+        {{video.name | slice:0 : 35}} {{video.name.length > 35 ? '...' : ''}}</h3>
+    </a>
+  </div>
+  <div class="panel-body height">
+    <video [id]="'vid-'+ id" (play)="play()" controls style="width:100%;">
+      <source [src]=" baseUrl + video.url" />
+      <p>Your browser does not support the video.</p>
+    </video>
+  </div>
+
+  <div class="panel-footer">
+    <rating [(ngModel)]="video.rateCount" [max]="5" [readonly]="true"></rating>
+    <p [title]="video.description">{{video.description | slice:0:35}} {{video.description.length > 35 ? '...' :''}} </p>
+  </div>
+
+</div>

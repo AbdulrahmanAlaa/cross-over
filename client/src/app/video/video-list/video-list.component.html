@@ -1,0 +1,8 @@
+<div (window:scroll)="onScroll($event)" [@listAnimation]="videos.length">
+  <div class="row">
+    <div class="col-lg-12 col-md-12"></div>
+    <div *ngFor="let video of videos; let i=index" class="col-md-4 col-sm-12">
+        <cross-single-video  [id]="i"  [baseUrl]="baseUrl" [video]="video"></cross-single-video>  
+    </div>
+  </div>
+</div>

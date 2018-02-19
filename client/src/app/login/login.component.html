@@ -1,0 +1,20 @@
+<div [@loginAnimations]='state' class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="assets/images/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form [formGroup]="loginForm" novalidate (ngSubmit)="login()" class="form-signin">
+        <span id="reauth-username" class="reauth-username"></span>
+        <input formControlName="username" type="text" id="inputUsername" class="form-control" placeholder="Username" autofocus>
+        <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password">
+        <div id="remember" class="checkbox">
+            <label>
+                    <input formControlName="rememberMe" type="checkbox" value="remember-me"> Remember me
+                </label>
+        </div>
+
+        <div *ngIf="error" class="alert alert-danger">
+            <strong>{{error}}</strong>
+        </div>
+        <button [ngClass]="{'btn-primary': loginForm.valid}" [disabled]="!loginForm.valid" class="btn btn-lg  btn-block btn-signin"
+            type="submit">Sign in</button>
+    </form>
+</div>
